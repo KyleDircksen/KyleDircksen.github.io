@@ -12,17 +12,19 @@
 <!-- NAVBAR -->
 <div class="Navbar">   
     <a class="active" href="#Home">Home</a>
+    <a href="#Slideshow">Slideshow</a>
     <a href="#About">About</a>
     <a href="#GitHub">GitHub</a>
-    <a href="#Contact">Contact</a>
+    <a onclick="openForm()" ondbclick="closeForm()">Contact</a>
+    <!--<a href="#Contact">Contact</a>-->
 </div>
 
-<!-- HOME + breaks as a seperator -->
-        <br>
-        <br>
 
 <!-- Video -->
-    <div id="Home">
+<div id="Home">
+    <!-- HOME + breaks as a seperator -->
+            <br>
+            <br>
         <video autoplay muted loop id="Typing_Video">
             <source src="Stylesheet/Video/Collaboration.mp4" type="video/mp4">
                 Your browser does not support HTML5 video.
@@ -48,6 +50,66 @@
             </p>
     </div>
 
+<!-- Slideshow Section -->
+<div id="Slideshow">
+    <div id="Slideshow_Background">
+        <div id="Slideshow_Container">
+
+            <div class="mySlides fade">
+                <div class="Slide_Number">1 / 6</div>
+                    <img class="Slide_Show_Images" src="Stylesheet/Images/Self_Portrait.JPG" style="width:100%">
+                        <div class="text">I'm available to assit you on your next project!</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="Slide_Number">2 / 6</div>
+                    <img class="Slide_Show_Images" src="Stylesheet/Images/HTML_CSS_and_JavaScript.jpeg" style="width:100%">
+                        <div class="text">I'm a full-stack data scientist, <br> trained in:<br>HTML, CSS, JavaScript,</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="Slide_Number">3 / 6</div>
+                    <img class="Slide_Show_Images" src="Stylesheet/Images/Python.png" style="width:100%">
+                        <div class="text">the popular programming language Python,</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="Slide_Number">4 / 6</div>
+                    <img class="Slide_Show_Images" src="Stylesheet/Images/NetFramework.png" style="width:100%">
+                        <div class="text">.NET Framework, ASP.NET, MVC,</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="Slide_Number">5 / 6</div>
+                    <img class="Slide_Show_Images" src="Stylesheet/Images/SQL_and_Database.jpg" style="width:100%">
+                        <div class="text">back end development, databases and SQL.</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="Slide_Number">6 / 6</div>
+                    <img class="Slide_Show_Images" src="Stylesheet/Images/Contact.jpg" style="width:100%">
+                        <div class="text">
+                            <a onclick="openForm()" href="#Contact" style="color:white;">Contact me now!</a>
+                        </div>
+            </div>
+            
+                <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    <br>
+        
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+
+    </div>
+</div>
+
 <!-- ABOUT Section-->
     <div class="Row" id="About">
         <div class="Column_2"> <!-- Left Side Column-->
@@ -66,8 +128,7 @@
             <h1>GitHub</h1>
                 <p>You can view my previous coding projects on my GitHub profile here:<br>
                 <center><a href="https://github.com/KyleDircksen/" target="_blank">Kyle Dircksen's GitHub</a></center></p>
-                <br><br><br><br>
-                <p class="Right_Side">Or you can click the picture over here -></p>
+                <p class="Right_Side">Or you can click the picture over here &#10140;</p>
         </div>
 
         <div class="Column_2"> <!-- Right Side Column-->
@@ -76,22 +137,23 @@
     </div>
 
 <!-- CONTACT Section-->
-    <div class="Row" id="Contact">
-        <div class="Column_3"> <!-- Left Side Column-->
-            <img src="Stylesheet/Images/Contact.jpg" alt="Contact_Image">
-        </div>
-
-        <div class="Column_1">
+    <div id="Contact">
+        <button onclick="openForm()" class="Pop_Up_Button">CONTACT </button>
+        <div class="form-popup" id="myForm">
+            <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container">
             <h1>Contact</h1>
-                <form action=" " method="get">
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please eneter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please enter your message here">
-                        <input type="submit" value="Submit">
-                </form>
+                <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Please enter your name here" name="name" required>
+                <label for="phone"><b>Phone</b></label>
+                    <input type="text" placeholder="Please enter your phone number here" name="phone">
+                <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Please eneter your email here" name="email" required>
+                <label for="message"><b>Message</b></label>
+                    <input type="text"  placeholder="Please enter your message here" name="Message">
+                    
+        <button type="submit" class="btn">SUBMIT</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+            </form>
         </div>
     </div>
     
@@ -101,5 +163,8 @@
             <center>&copy Proper Consulting Inc., <a href="https://learncodinganywhere.com/">The Tech Academy</a></center><br>
         </p>
     </footer>
+
+    <script src="JS/Portfolio.js"></script>
+
 </body>
 </html>

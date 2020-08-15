@@ -1,6 +1,21 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* Body */
 body {
     margin: 0%;
+    opacity: 1;
+    transition: 3s opacity;
+    letter-spacing: .2vw;
+    font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw;
+}
+
+/* Body Fade Effect*/
+body.fade-out {
+    opacity: .1;
+    transition: none;
 }
 
 /* NAVBAR */
@@ -11,6 +26,9 @@ body {
     top: 0;
     width: 100%;
     z-index: 1;
+    position: fixed;
+    -webkit-animation: moveNav 5s;
+    animation: moveNav 5s;
 }
 
 /* NAVBAR Text */
@@ -18,11 +36,33 @@ body {
     float: left;
     display: block;
     color: white;
-    padding: 14px 16px;
+    padding: .75vw 1vw;
     text-decoration: none;
     font-family: Avant Garde, Helvetica;
-    font-size: 20px;
+    font-size: 1.5vw;
     text-align: center;
+    position: relative;
+    -webkit-animation: movenavText 5.75s;
+    animation: movenavText 5.75s;
+    letter-spacing: .2vw;
+}
+
+/* Animation effect for moving nav bar from above the top of screen when page loads */
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+/* Animation effect for moving nav bar in from top of screen when page loads*/
+@keyframes movenavText {
+    from {top: -100vw;}
+    to {top: 0vw;}
+}
+
+/* Animation effect that causes video overlay text to move up from bottom of page when it loads*/
+@keyframes movevideoText {
+    from {top: -100vw;}
+    to {top: 0vw;}
 }
 
 /* NAVBAR Hover Effects */
@@ -30,11 +70,24 @@ body {
     background-color: #F4F4F4;
     color: black;
     font-weight: bold;
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
 }
 
 /* NAVBAR Home Button */
 .Navbar a.active {
     background-color: darkgray;
+}
+
+/* Causes the video to zoom out from a zoomed in position when page loads*/
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1.5,1.5)
+    }
+    100% {
+        transform: scale(1,1);
+    }
 }
 
 /* Video */
@@ -44,6 +97,7 @@ body {
     bottom: 0;
     min-width: 100%;
     z-index: -1;
+    animation: zoominoutsinglefeatured 5s;
 }
 
 /* Text Over Video */
@@ -51,8 +105,130 @@ body {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     width: 100%;
-    padding: 20px;
+    padding-top: .1vh;
+    padding-bottom: .1vh;
     margin-top: 23%;
+    position: relative;
+    -webkit-animation: moveNav 4s;
+    animation: movevideoText 4s;
+}
+
+/* Slideshow styling */
+#Slideshow_Background {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.mySlides {
+    display: none;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Slideshow Section / Container */
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+/* Images within slideshow */
+.Slide_Show_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: auto;
+}
+
+/* Next and Previous buttons */
+.Previous, .Next {
+    cursor: pointer;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    margin-top: -0vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+/* Positioning the right hand next button */
+.Next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Hover effect on slide show buttons */
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Slideshow Text */
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    border-radius: 7px 7px 7px 7px;
+}
+
+/* Number text (1 / 6, 2 / 6, etc.) becoming hidden */
+.Slide_Number {
+    color: white;
+    position: absolute;
+    top: 0;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: none;
+}
+
+/*  The dots under the slideshow */
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effects for slideshow dots */
+.active, .dot:hover {
+    background-color: black;
+}
+
+/* Fading animation for slideshow */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
 /* Table Styling */
@@ -63,26 +239,16 @@ body {
 .Column_1 {
     float: left;
     width: 50%;
-    padding-top: 1%;
-    height: 400px;
+    padding: 1.6%;
+    height: 650px;
     background-color: #f2f2f2;
 }
 
 .Column_2 {
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 1.9%;
-    height: 400px;
-    background-color: #4d4d4d;
-}
-
-.Column_3 {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    padding-top: 3.5%;
-    height: 450px;
+    padding: 1.6%;
+    height: 650px;
     background-color: #4d4d4d;
 }
 
@@ -105,20 +271,20 @@ h1 {
 p {
     font-family: Perpetua, Rockewell Extra Bold;
     text-align: justify;
-    letter-spacing: 1px;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 /* Center Align Elements */
 center {
     font-family: Perpetua, Rockwell, Extra Bold;
     text-align: center;
-    letter-spacing: 1px;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 /* Anchor Elements */
@@ -137,47 +303,9 @@ img {
     filter: grayscale(75%);
     border-radius: 8px;
     max-width: 100%;
-    height: 340px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
+    margin: auto auto auto auto;
     display: block;
-}
-
-/* Contact Form */
-input[type=text] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    font-family: Perpetua, Rockwell Extra Bold;
-}
-
-/* Submit Button */
-input[type=submit] {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Perpetua, Rockwell Extra Bold;
-}
-
-/* Hover Effects for Submit Button */
-input[type=submit]:hover {
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    transform: scale(1.5);
-    transition: transform 1.5s;
 }
 
 /* Form element */
@@ -227,4 +355,101 @@ video {
 
 .Right_Side {
     text-align: right;
+}
+
+/* Contact Form Styling */
+
+/* Allows contact form button slide in from right on page load */
+@keyframes movePopup {
+    from {right: -40vw}
+    to {bottom: 1.75vw}
+}
+
+/* Button used to open contact form - fixed at bottom of page */
+.Pop_Up_Button {
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: white;
+    color: black;
+    border: solid;
+    cursor: pointer;
+    position: fixed;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    border: 3px solid #f0f1f0;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+}
+
+/* Form Styling */
+.form-container {
+    max-width: 49vw;
+    padding: 9px;
+    background-color: white;
+}
+
+/* Input Fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: Gainsboro;
+    font-family: Helvetica, Avant Garde;
+    font-size: 1vw;
+}
+
+/* Submit Button */
+.form-container .btn {
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+/* Close button */
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+/* Button Styling */
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw 1.5vw;
+    border-style: solid;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+/* Hover effects for Buttons */
+button:hover, .form-container .btn:hover {
+    color: white;
+    background-color: black;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: silver;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: black;
 }
