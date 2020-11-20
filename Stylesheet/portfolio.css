@@ -8,7 +8,7 @@ body {
     opacity: 1;
     transition: 3s opacity;
     letter-spacing: .2vw;
-    font-family: Avant Garde, Helvetica;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5vw;
 }
 
@@ -38,7 +38,7 @@ body.fade-out {
     color: white;
     padding: .75vw 1vw;
     text-decoration: none;
-    font-family: Avant Garde, Helvetica;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5vw;
     text-align: center;
     position: relative;
@@ -156,7 +156,7 @@ body.fade-out {
     width: auto;
     padding: 2vw;
     margin-top: -0vw;
-    color: darkgray;
+    color: black;
     font-weight: bold;
     font-size: 1.5vw;
     border-radius: 0 3px 3px 0;
@@ -168,6 +168,13 @@ body.fade-out {
 .Next {
     right: 0;
     border-radius: 3px 0 0 3px;
+}
+.Button_Container {
+    top: 2.25vw;
+    left: 1.5vw;
+    position: relative;
+    margin-top: 2vw;
+    margin-bottom: .5vw;
 }
 
 /* Hover effect on slide show buttons */
@@ -181,15 +188,16 @@ body.fade-out {
     color: white;
     padding: 1vw;
     position: absolute;
-    bottom: 0;
+    bottom: -1.25vw;
     width: 100%;
     text-align: center;
-    font-family: Perpetua, Rockwell Extra Bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: .1vw;
     font-size: 1.5vw;
     background-color: rgba(0, 0, 0, 0.75);
     font-weight: bold;
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 0px;
+    margin-bottom: 5vw;
 }
 
 /* Number text (1 / 6, 2 / 6, etc.) becoming hidden */
@@ -197,7 +205,7 @@ body.fade-out {
     color: white;
     position: absolute;
     top: 0;
-    font-family: Perpetua, Rockwell Extra Bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: .1vw;
     font-size: 1.5vw;
     font-weight: bold;
@@ -210,6 +218,8 @@ body.fade-out {
     height: 1vw;
     width: 1vw;
     margin: .25vw;
+    margin-bottom: .5vw;
+    bottom: 1.5vw;
     background-color: white;
     border-radius: 50%;
     display: inline-block;
@@ -240,15 +250,16 @@ body.fade-out {
     float: left;
     width: 50%;
     padding: 1.6%;
-    height: 650px;
+    height: 50vw;
     background-color: #f2f2f2;
+    overflow-y: scroll;
 }
 
 .Column_2 {
     float: left;
     width: 50%;
     padding: 1.6%;
-    height: 650px;
+    height: 50vw;
     background-color: #4d4d4d;
 }
 
@@ -260,8 +271,7 @@ body.fade-out {
 
 /* Heading 1 Elements */
 h1 {
-    text-transform: uppercase;
-    font-family: "Trebuchet MS", Optima;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     margin-top: 3%;
     color: #1a1a1a;
@@ -269,7 +279,7 @@ h1 {
 
 /* Paragraph Elements */
 p {
-    font-family: Perpetua, Rockewell Extra Bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: justify;
     letter-spacing: .1vw;
     font-size: 1.5vw;
@@ -279,7 +289,7 @@ p {
 
 /* Center Align Elements */
 center {
-    font-family: Perpetua, Rockwell, Extra Bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     letter-spacing: .1vw;
     font-size: 1.5vw;
@@ -301,7 +311,7 @@ q {
 /* Image Elements */
 img {
     filter: grayscale(75%);
-    border-radius: 8px;
+    border-radius: 0px;
     max-width: 100%;
     height: 100%;
     margin: auto auto auto auto;
@@ -313,7 +323,7 @@ form {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-    font-family: "Trebuchet MS", Optima;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Center Align Element Hover Effet */
@@ -403,7 +413,7 @@ video {
     margin: .6vw 0 .6vw 0;
     border: none;
     background: Gainsboro;
-    font-family: Helvetica, Avant Garde;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1vw;
 }
 
@@ -424,7 +434,7 @@ video {
 
 /* Button Styling */
 button {
-    font-family: "Trebuchet MS", Optima;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: .3vw;
     font-size: 1.5vw;
     font-weight: bold;
